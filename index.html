@@ -596,6 +596,78 @@ footer{
 .reveal.visible{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
+/* PODCAST PROMO (columna derecha en grupos) */
+.podcast-promo h3{font-family:'Lora',serif;font-size:1.9rem;color:var(--texto);margin-bottom:.875rem;line-height:1.3}
+.podcast-promo h3 span{color:var(--rojo)}
+.podcast-promo p{color:var(--texto-suave);line-height:1.78;margin-bottom:1.25rem}
+.spotify-btn{
+  display:inline-flex;align-items:center;gap:.9rem;
+  background:#191414;border-radius:30px;padding:.9rem 1.5rem;
+  text-decoration:none;transition:var(--tr);color:white;
+  margin-top:.5rem;
+}
+.spotify-btn:hover{background:#121212;transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,215,96,.3)}
+.spotify-btn .sp-ico{flex-shrink:0}
+.spotify-btn .sp-label{font-size:.58rem;opacity:.7;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.1rem}
+.spotify-btn .sp-name{font-size:.98rem;font-weight:600;color:#1ED760;letter-spacing:.01em}
+.podcast-note{font-size:.78rem!important;color:var(--gris)!important;margin-top:1.25rem!important;margin-bottom:0!important;font-style:italic}
+
+/* SEMINARIO BÍBLICO */
+#seminario{background:var(--crema);padding:6rem 5rem}
+.sem2-header{text-align:center;max-width:700px;margin:0 auto 3.5rem}
+.sem2-header .sec-h span{color:var(--rojo)}
+.sem2-header .sec-sub{margin:0 auto}
+.sem2-carousel-wrap{position:relative;display:flex;align-items:center;gap:.75rem}
+.sem2-carousel{
+  display:flex;gap:1.5rem;
+  overflow-x:scroll;scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;
+  flex:1;
+}
+.sem2-carousel::-webkit-scrollbar{display:none}
+.sem2-book{
+  flex:0 0 calc((100% - 3rem) / 3);
+  scroll-snap-align:start;
+  background:white;border-radius:4px;
+  box-shadow:var(--sombra);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:var(--tr);
+}
+.sem2-book:hover{transform:translateY(-4px);box-shadow:var(--sombra-h)}
+.sem2-cover{
+  width:100%;aspect-ratio:3/4;overflow:hidden;
+  pointer-events:none;user-select:none;
+  background:var(--crema-osc);flex-shrink:0;
+}
+.sem2-cover img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  pointer-events:none;-webkit-user-drag:none;
+  draggable:false;
+}
+.sem2-book-info{padding:1.1rem 1.25rem 1.25rem;flex:1;display:flex;flex-direction:column}
+.sem2-book-num{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--dorado);margin-bottom:.3rem}
+.sem2-book-info h4{font-family:'Lora',serif;font-size:.92rem;color:var(--texto);margin-bottom:.45rem;line-height:1.3}
+.sem2-book-info p{font-size:.76rem;color:var(--texto-suave);line-height:1.62;flex:1}
+.sem2-nav{
+  background:white;border:1px solid var(--crema-osc);
+  border-radius:50%;width:44px;height:44px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1.05rem;color:var(--texto);
+  transition:var(--tr);box-shadow:var(--sombra);
+  align-self:center;
+}
+.sem2-nav:hover{background:var(--rojo);color:white;border-color:var(--rojo)}
+.sem2-nav:disabled{opacity:.35;cursor:default;pointer-events:none}
+.sem2-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.75rem}
+.sem2-dot{
+  width:8px;height:8px;border-radius:50%;padding:0;border:none;
+  background:var(--crema-osc);border:1.5px solid rgba(44,36,32,.18);
+  cursor:pointer;transition:var(--tr);
+}
+.sem2-dot.active{background:var(--rojo);border-color:var(--rojo);transform:scale(1.2)}
+.sem2-cta{text-align:center;margin-top:2.75rem}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
   #hero{grid-template-columns:1fr;min-height:auto}
@@ -606,6 +678,8 @@ footer{
   .min-grid{grid-template-columns:1fr 1fr}
   #live{grid-template-columns:1fr;gap:2.5rem}
   #grupos{grid-template-columns:1fr;gap:2.5rem}
+  #seminario{padding:4rem 2rem}
+  .sem2-book{flex:0 0 calc((100% - 1.5rem) / 2)}
   #app{grid-template-columns:1fr;text-align:center}
   .app-stores{align-items:center}
   .app-right{justify-content:center}
@@ -626,6 +700,7 @@ footer{
   .min-grid{grid-template-columns:1fr}
   .redes-grid{grid-template-columns:1fr}
   .horarios-chips{grid-template-columns:1fr 1fr}
+  .sem2-book{flex:0 0 100%}
 }
 </style>
 </head>
@@ -654,6 +729,7 @@ footer{
     <li><a href="#ministerios">Ministerios</a></li>
     <li><a href="#live">En vivo</a></li>
     <li><a href="#grupos">Grupos</a></li>
+    <li><a href="#seminario">Seminario</a></li>
     <li><a href="#app">App</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <li><a href="https://wa.me/5491125864722" class="nav-cta" target="_blank">Visitanos →</a></li>
@@ -668,6 +744,7 @@ footer{
   <a href="#ministerios" onclick="closeMobile()">Ministerios</a>
   <a href="#live" onclick="closeMobile()">En vivo</a>
   <a href="#grupos" onclick="closeMobile()">Grupos</a>
+  <a href="#seminario" onclick="closeMobile()">Seminario</a>
   <a href="#app" onclick="closeMobile()">App evida</a>
   <a href="#contacto" onclick="closeMobile()">Contacto</a>
   <a href="https://wa.me/5491125864722" target="_blank">Visitanos →</a>
@@ -907,19 +984,101 @@ footer{
       </div>
     </div>
   </div>
-  <div class="sem-contenido">
-    <div class="eyebrow reveal">Formación</div>
-    <h3 class="reveal">Seminario Bíblico</h3>
-    <p class="reveal">Profundizá tu comprensión de las Escrituras con enseñanza sistemática y aplicación práctica a la vida cotidiana.</p>
-    <p class="reveal">Un espacio para crecer en el conocimiento de la Palabra de Dios, pensado para todas las edades y sin importar tu nivel bíblico previo.</p>
-    <div class="sem-tags reveal">
-      <span class="tag">Estudios bíblicos</span>
-      <span class="tag">Teología práctica</span>
-      <span class="tag">Durante la semana</span>
-      <span class="tag">Todas las edades</span>
-      <span class="tag">Sin requisitos previos</span>
+  <div class="sem-contenido podcast-promo">
+    <div class="eyebrow reveal">Escuchalo donde estés</div>
+    <h3 class="reveal">El podcast de los <span>grupos</span></h3>
+    <p class="reveal">Las grabaciones de nuestros grupos de conexión, disponibles como podcast. Reflexiones, oración y vida en comunidad — para escuchar cuando quieras.</p>
+    <p class="reveal">Nuevos episodios cada semana, con los temas que estamos estudiando juntos.</p>
+    <a href="https://open.spotify.com/show/033fyYCE4gwxwPmcVsBArO?si=G99rHy9kTDinSMC1-gI9zA"
+       class="spotify-btn reveal" target="_blank" rel="noopener">
+      <svg class="sp-ico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#1ED760">
+        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+      </svg>
+      <div>
+        <span class="sp-label">Escuchanos en</span>
+        <span class="sp-name">Spotify</span>
+      </div>
+    </a>
+    <p class="podcast-note reveal">También disponible en todas las plataformas de podcasts.</p>
+  </div>
+</section>
+
+<!-- SEMINARIO BÍBLICO -->
+<section id="seminario">
+  <div class="sem2-header">
+    <div class="eyebrow reveal">Formación bíblica</div>
+    <h2 class="sec-h reveal">Seminario <span>Bíblico</span></h2>
+    <p class="sec-sub reveal">Un estudio integral de la vida de Jesús — histórico, geográfico y teológico. Seis módulos de doce semanas cada uno, con contenido que integra teología, consejería, predicación y misión. Dos años de formación bíblica profunda.</p>
+  </div>
+  <div class="sem2-carousel-wrap">
+    <button class="sem2-nav sem2-prev" aria-label="Anterior">&#8592;</button>
+    <div class="sem2-carousel" id="sem2Carousel">
+      <div class="sem2-book">
+        <div class="sem2-cover">
+          <img src="https://fiet.com.ar/wp-content/uploads/2020/07/VDJ_01_tapa-460x640.jpg" alt="Libro 1" loading="lazy" draggable="false">
+        </div>
+        <div class="sem2-book-info">
+          <div class="sem2-book-num">Libro 1</div>
+          <h4>Introducción e infancia</h4>
+          <p>Jesús en el Imperio Romano, las genealogías del Rey, el nacimiento, la infancia y juventud de Jesús.</p>
+        </div>
+      </div>
+      <div class="sem2-book">
+        <div class="sem2-cover">
+          <img src="https://fiet.com.ar/wp-content/uploads/2020/07/VDJ_02_tapa-460x640.jpg" alt="Libro 2" loading="lazy" draggable="false">
+        </div>
+        <div class="sem2-book-info">
+          <div class="sem2-book-num">Libro 2</div>
+          <h4>Año de preparación</h4>
+          <p>Juan el Bautista, el bautismo y tentación de Jesús, la Trinidad, Nicodemo y la mujer samaritana.</p>
+        </div>
+      </div>
+      <div class="sem2-book">
+        <div class="sem2-cover">
+          <img src="https://fiet.com.ar/wp-content/uploads/2020/07/VDJ_03_tapa-460x640.jpg" alt="Libro 3" loading="lazy" draggable="false">
+        </div>
+        <div class="sem2-book-info">
+          <div class="sem2-book-num">Libro 3</div>
+          <h4>Año de popularidad</h4>
+          <p>Expansión del reino, el Padrenuestro, los milagros, los enemigos del reino y la misión evangelizadora.</p>
+        </div>
+      </div>
+      <div class="sem2-book">
+        <div class="sem2-cover">
+          <img src="https://fiet.com.ar/wp-content/uploads/2020/07/VDJ_04_tapa-460x641.jpg" alt="Libro 4" loading="lazy" draggable="false">
+        </div>
+        <div class="sem2-book-info">
+          <div class="sem2-book-num">Libro 4</div>
+          <h4>Año de pasión</h4>
+          <p>El hombre hecho a imagen de Dios, los ángeles y demonios, el matrimonio, las posesiones y las ambiciones humanas.</p>
+        </div>
+      </div>
+      <div class="sem2-book">
+        <div class="sem2-cover">
+          <img src="https://fiet.com.ar/wp-content/uploads/2020/07/VDJ_05_tapa-460x640.jpg" alt="Libro 5" loading="lazy" draggable="false">
+        </div>
+        <div class="sem2-book-info">
+          <div class="sem2-book-num">Libro 5</div>
+          <h4>La semana de pasión</h4>
+          <p>Jerusalén y el templo, el Sermón de los Olivos, la Santa Cena, Getsemaní, los juicios y la muerte de Jesús.</p>
+        </div>
+      </div>
+      <div class="sem2-book">
+        <div class="sem2-cover">
+          <img src="https://fiet.com.ar/wp-content/uploads/2020/07/VDJ_06_tapa-460x640.jpg" alt="Libro 6" loading="lazy" draggable="false">
+        </div>
+        <div class="sem2-book-info">
+          <div class="sem2-book-num">Libro 6</div>
+          <h4>La vida resucitada</h4>
+          <p>Las apariciones del Cristo resucitado, la Gran Comisión, Pentecostés y el Espíritu Santo, los primeros pasos de la iglesia.</p>
+        </div>
+      </div>
     </div>
-    <a href="https://wa.me/5491125864722?text=Hola%2C+quiero+información+sobre+el+seminario+bíblico" class="btn-p reveal" target="_blank">Consultar horarios →</a>
+    <button class="sem2-nav sem2-next" aria-label="Siguiente">&#8594;</button>
+  </div>
+  <div class="sem2-dots" id="sem2Dots"></div>
+  <div class="sem2-cta">
+    <a href="https://wa.me/5491125864722?text=Hola%2C+quiero+información+sobre+el+seminario+bíblico" class="btn-p reveal" target="_blank">Consultar sobre el seminario →</a>
   </div>
 </section>
 
@@ -1182,6 +1341,55 @@ const appObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.15 });
 if (appImg) appObserver.observe(appImg);
+
+// ── SEMINARIO CAROUSEL ────────────────────────────────────────
+(function() {
+  const carousel  = document.getElementById('sem2Carousel');
+  const dotsWrap  = document.getElementById('sem2Dots');
+  if (!carousel || !dotsWrap) return;
+
+  const wrap      = carousel.closest('.sem2-carousel-wrap');
+  const prevBtn   = wrap.querySelector('.sem2-prev');
+  const nextBtn   = wrap.querySelector('.sem2-next');
+  const books     = Array.from(carousel.querySelectorAll('.sem2-book'));
+
+  books.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'sem2-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Libro ' + (i + 1));
+    d.addEventListener('click', () => scrollToBook(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function bookWidth() {
+    const b = books[0];
+    if (!b) return carousel.offsetWidth;
+    const gap = parseFloat(getComputedStyle(carousel).gap) || 24;
+    return b.offsetWidth + gap;
+  }
+
+  function scrollToBook(i) {
+    carousel.scrollTo({ left: i * bookWidth(), behavior: 'smooth' });
+  }
+
+  function activeIndex() {
+    return Math.round(carousel.scrollLeft / bookWidth());
+  }
+
+  function updateDots() {
+    const idx = Math.min(activeIndex(), books.length - 1);
+    dotsWrap.querySelectorAll('.sem2-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === idx));
+  }
+
+  prevBtn.addEventListener('click', () =>
+    carousel.scrollBy({ left: -bookWidth(), behavior: 'smooth' }));
+  nextBtn.addEventListener('click', () =>
+    carousel.scrollBy({ left: bookWidth(), behavior: 'smooth' }));
+
+  carousel.addEventListener('scroll', updateDots, { passive: true });
+})();
+// ── FIN SEMINARIO CAROUSEL ────────────────────────────────────
 
 // Parallax: desplazamiento sutil según scroll
 window.addEventListener('scroll', () => {
